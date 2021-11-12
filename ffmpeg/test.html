@@ -1,0 +1,87 @@
+<div style="">
+    <div style="height: 50%; width: 50%; float: left;">
+        <video style="height: 100%;" id="vid" controls autoplay>
+
+        </video>
+    </div>
+
+    <div style="height:50% ; width: 50%;float: right;">
+        <canvas style="height: 100%;" id="myChart"></canvas>
+    </div>
+    <div style="position: absolute; bottom: 0; left: auto; font-size: 50px;" id="count"></div>
+</div>
+<!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>2 -->
+<script src="http://cdn.dashjs.org/latest/dash.all.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+<script>
+
+    let chatData = [];
+
+    const data = [{ time: 0, count: 5 }]
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [],
+            datasets: [{
+                label: "Count",
+                data: [],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const vid = document.getElementById("vid");
+    var url = "http://localhost:5000/media/avc/index.mpd";
+    var player = dashjs.MediaPlayer().create();
+    player.updateSettings({
+        // streaming: {
+        //     lowLatencyEnabled: true,
+        //     liveDelay: 5,
+        //     liveCatchup: {
+        //         minDrift: 0.02,
+        //         maxDrift: 0,
+        //         playbackRate: 0.5,
+        //         latencyThreshold: 60
+        //     }
+        // }
+    });
+    player.initialize(vid, url, true);
+    // var videoSrc = 'http://localhost:8000/live/s/index.mpd';
+    // if (Hls.isSupported()) {
+    //     var hls = new Hls();
+    //     hls.loadSource(videoSrc);
+    //     hls.attachMedia(vid);
+    // }
+    let time = 1
+    const i = setInterval(() => {
+        data.push({ time: time++, count: Math.random() * 10 })
+        if (time > vid.duration) {
+            clearInterval(i)
+        }
+    }, 1000);
+    vid.ontimeupdate = () => {
+
+        const countDiv = document.getElementById("count")
+        myChart.data.datasets[0].data = data.map(x => x.count).slice(0, parseInt(vid.currentTime))
+        myChart.data.labels = data.map(x => x.time + 1).slice(0, parseInt(vid.currentTime))
+        myChart.update()
+
+        countDiv.innerHTML = data.find(x => x.time == parseInt(vid.currentTime)).count;
+    }
+
+
+</script>

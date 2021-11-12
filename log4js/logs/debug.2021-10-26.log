@@ -1,0 +1,38 @@
+[32m2021-10-26T15:56:03.108 INFO log4js/log.js:73 s
+]
+2021-10-26T15:56:50.514 ERROR log4js/log.js:73 s
+
+2021-10-26T15:56:59.303 ERROR log4js/log.js:73 s
+
+2021-10-26T16:05:50.847 ERROR log4js/log.js:80 s
+
+2021-10-26T16:05:50.852 ERROR log4js/log.js:81 ss
+
+2021-10-26T16:09:01.281 ERROR log4js/log.js:74 s
+
+2021-10-26T16:09:01.283 ERROR log4js/log.js:75 ss
+
+2021-10-26T16:10:19.920 ERROR log4js/log.js:75 s
+
+2021-10-26T16:10:19.924 ERROR log4js/log.js:76 ss
+
+2021-10-26T16:10:59.710 ERROR log4js/log.js:76 ss
+
+2021-10-26T16:10:59.714 ERROR log4js/log.js:77 s
+
+2021-10-26T16:11:41.715 ERROR log4js/log.js:75 ss
+
+2021-10-26T16:11:41.727 ERROR log4js/log.js:76 s
+
+2021-10-26T16:11:48.893 ERROR log4js/log.js:75 ss
+
+2021-10-26T16:11:48.897 ERROR log4js/log.js:76 s
+
+2021-10-26T16:14:09.761 INFO log4js/log.js:75 hello
+
+2021-10-26T16:29:18.807 undefined INFO log4js/log.js:94 helo
+
+2021-10-26T16:29:37.716 undefined INFO log4js/log.js:94 helo
+
+2021-10-26T16:29:37.721 service INFO log4js/log.js:95 s
+

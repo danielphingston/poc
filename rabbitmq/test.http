@@ -1,0 +1,20 @@
+
+@host=http://localhost:3000
+
+POST {{host}}/add HTTP/1.1
+Content-Type: application/json
+
+{
+    "message": "hello world"
+}
+
+
+###
+
+GET {{host}} HTTP/1.1
+
+###
+
+GET {{host}}/test HTTP/1.1
+
+

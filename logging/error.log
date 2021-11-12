@@ -1,0 +1,24 @@
+2021-05-28 20:50:34 error [t/test.js]: x is not defined
+2021-05-28 20:50:42 error [t/test.js]: x is not defined
+2021-05-28 20:51:06 error [t/test.js]: x is not defined
+2021-05-28 20:53:12 error [t/test.js]: x is not defined
+2021-05-28 20:53:17 error [t/test.js]: x is not defined
+2021-05-28 20:53:35 error [t/test.js]: x is not defined
+2021-05-28 20:56:48 error [t/test.js]: x is not defined
+2021-05-28 20:57:02 error [t/test.js]: x is not defined
+2021-05-28 20:57:40 error [t/test.js]: x is not defined
+2021-05-28 20:59:03 error [src/test.js]: x is not defined
+2021-05-28 20:59:18 error [src/test.js]: x is not defined
+2021-05-28 20:59:46 error [src/test.js]: "x is not defined"
+error: x is not defined {"timestamp":"2021-05-28 21:02:19","label":"src/test.js","metadata":{"service":"test-service"}}
+undefined
+error: x is not defined {"timestamp":"2021-05-28 21:02:46","label":"src/test.js","metadata":{"service":"test-service"}}
+2021-05-28 21:02:56 error [src/test.js]: "x is not defined"
+2021-05-28 21:03:05 error [src/test.js]: x is not defined
+2021-05-28 21:06:00 error [src/test.js]: x is not defined
+2021-05-28 21:06:15 error [src/test.js]: x is not defined
+2021-05-28 21:06:32 error [src/test.js]: x is not defined
+2021-05-28 21:06:46 error [src/test.js]: x is not defined
+2021-05-28 21:11:34 error [src/test.js]: x is not defined
+2021-05-28 21:11:39 error [src/test.js]: x is not defined
+2021-05-28 21:11:48 error [src/test.js]: x is not defined

@@ -1,0 +1,144 @@
+<div style="">
+    <div style="height: 50%; width: 50%; float: left;">
+        <div class="dash-video-player ">
+            <div class="videoContainer" id="videoContainer">
+                <video style="width:100%" id="vid" preload="auto" autoplay=""></video>
+                <div id="videoController" class="video-controller unselectable">
+                    <div id="playPauseBtn" class="btn-play-pause" title="Play/Pause">
+                        <span id="iconPlayPause" class="icon-play"></span>
+                    </div>
+                    <span id="videoTime" class="time-display">00:00:00</span>
+                    <div id="fullscreenBtn" class="btn-fullscreen control-icon-layout" title="Fullscreen">
+                        <span class="icon-fullscreen-enter"></span>
+                    </div>
+                    <div id="bitrateListBtn" class="control-icon-layout" title="Bitrate List">
+                        <span class="icon-bitrate"></span>
+                    </div>
+                    <input type="range" id="volumebar" class="volumebar" value="1" min="0" max="1" step=".01">
+                    <div id="muteBtn" class="btn-mute control-icon-layout" title="Mute">
+                        <span id="iconMute" class="icon-mute-off"></span>
+                    </div>
+                    <div id="trackSwitchBtn" class="control-icon-layout" title="A/V Tracks">
+                        <span class="icon-tracks"></span>
+                    </div>
+                    <div id="captionBtn" class="btn-caption control-icon-layout" title="Closed Caption">
+                        <span class="icon-caption"></span>
+                    </div>
+                    <span id="videoDuration" class="duration-display">00:00:00</span>
+                    <div class="seekContainer">
+                        <div id="seekbar" class="seekbar seekbar-complete">
+                            <div id="seekbar-buffer" class="seekbar seekbar-buffer"></div>
+                            <div id="seekbar-play" class="seekbar seekbar-play"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height:50% ; width: 50%;float: right;">
+        <canvas style="height: 100%;" id="myChart"></canvas>
+    </div>
+    <div style="position: absolute; bottom: 0; left: auto; font-size: 50px;" id="count"></div>
+    <input id="url" hint="url"></input>
+    <button onclick="changeUrl()">change url</button>
+
+</div>
+
+<script src="http://cdn.dashjs.org/latest/dash.all.debug.js"></script>
+<script src="./akamai/controlbar/ControlBar.js"></script>
+link
+<link rel="stylesheet" href="./akamai/controlbar/controlbar.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+<script>
+
+    let chatData = [];
+    var player ;
+
+    const data = [{ time: 0, count: 5 }]
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [],
+            datasets: [{
+                label: "Count",
+                data: [],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const vid = document.getElementById("vid");
+    // vid.src = "http://localhost:3000/dash/test/index.mpd"
+    function changeUrl() {
+        // var url = "http://ec2-3-12-166-161.us-east-2.compute.amazonaws.com:3030/dash/d0118b8f57abf6159469a3c75eb4d592/index.mpd";
+        const url = document.getElementById("url").value
+        vid.src = url
+         player = dashjs.MediaPlayer().create();
+        player.updateSettings({
+            streaming: {
+                lowLatencyEnabled: true,
+                cacheInitSegments: true,
+                delay: {
+                    useSuggestedPresentationDelay: false,
+                    applyServiceDescription: true,
+                    liveDelay:10
+                },
+                liveCatchUp:{
+                    enabled:true
+                },
+                // restrictions:{
+                //     maxHeight:800
+                // }
+            },
+            timeShiftBuffer: {
+                calcFromSegmentTimeline: true,
+                fallbackToSegmentTimeline: true
+            },
+
+            buffer: {
+                stableBufferTime: 12
+            }
+        });
+        player.initialize(vid, url, true);
+        var controlbar = new ControlBar(player);
+        controlbar.initialize();
+    }
+    // var videoSrc = 'http://ec2-3-12-166-161.us-east-2.compute.amazonaws.com:3030/dash/d0118b8f57abf6159469a3c75eb4d592/index.mpd';
+    // if (Hls.isSupported()) {
+    //     var hls = new Hls();
+    //     hls.loadSource(videoSrc);
+    //     hls.attachMedia(vid);
+    // }
+    let time = 1
+    // const i = setInterval(() => {
+    //     data.push({ time: time++, count: Math.random() * 10 })
+    //     if (time > vid.duration) {
+    //         clearInterval(i)
+    //     }
+    // }, 1000);
+    // vid.ontimeupdate = () => {
+
+    //     const countDiv = document.getElementById("count")
+    //     myChart.data.datasets[0].data = data.map(x => x.count).slice(0, parseInt(vid.currentTime))
+    //     myChart.data.labels = data.map(x => x.time + 1).slice(0, parseInt(vid.currentTime))
+    //     myChart.update()
+
+    //     countDiv.innerHTML = data.find(x => x.time == parseInt(vid.currentTime)).count;
+    // }
+
+
+</script>

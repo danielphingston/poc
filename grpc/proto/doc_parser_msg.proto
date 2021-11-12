@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message DocParseRequest {
+  int32 user_id = 1;
+  string doc_path = 2;
+}
+
+message DocParseResponse {
+  int32 status = 1;
+  string message = 2;
+}
+
+service DocParseService {
+  rpc Parse(DocParseRequest) returns (DocParseResponse);
+}

@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+option go_package = "../../grpcIntegartion";
+import "google/protobuf/empty.proto";
+
+package dsProto;
+
+service DeepStreamEventService {
+  rpc TriggerDSEventUpload(DSEventUploadRequest)
+      returns (DSEventUploadResponse) {}
+  rpc TriggerDSEventControl(DSEventContolRequest)
+      returns (DSEventControlResponse) {}
+  rpc TriggerDSEventDataNotify(DSEventDataNotification)
+      returns (google.protobuf.Empty) {}
+
+  rpc TriggerDSEventProcessedDataNotify(DSEventProcessedDataNotification)
+      returns (Empty) {}
+}
+
+message DSEventUploadRequest {
+  enum DSEventsUQuery {
+    FILE_UPLOAD = 0;
+    RTSP_UPLOAD = 1;
+  }
+
+  message DSAnalyticsInfo {
+    enum LCMode {
+      loose = 0;
+      balanced = 1;
+      strict = 2;
+    }
+
+    string ROI = 1;
+    repeated string LC = 2;
+    repeated string Direction = 3;
+    bool Extended = 4;
+    LCMode lcMode = 5;
+    bool InverseROI = 6;
+  }
+
+  DSEventsUQuery uQuery = 1;
+  string inUrl = 2;
+  DSAnalyticsInfo dsAnalyticsInfo = 3;
+  string useCase = 4;
+  string subUseCase = 5;
+}
+
+message DSEventUploadResponse {
+  enum DSEventsURsp {
+    SUCCESS = 0;
+    FAILURE = 1;
+  }
+  DSEventsURsp uRsp = 1;
+  string errStr = 2;
+  string outUrl = 3;
+  string wsUrl = 4;
+}
+
+message DSEventContolRequest {
+  enum DSEventsCQuery {
+    START_INFERENCE = 0;
+    START_DEEPSTREAM = 1;
+  }
+  DSEventsCQuery cQuery = 1;
+  string payload = 2;
+}
+
+message DSEventControlResponse {
+  enum DSEventsCRsp {
+    SUCCESS = 0;
+    FAILURE = 1;
+  }
+  DSEventsCRsp cRsp = 1;
+  string errStr = 2;
+}
+
+message DSEventDataNotification {
+  repeated string labels = 1;
+  string uniqueID = 2;
+}
+
+message DSEventProcessedDataNotification {
+  repeated string labels = 1;
+  string uniqueID = 2;
+}

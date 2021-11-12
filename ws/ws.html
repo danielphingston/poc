@@ -1,0 +1,31 @@
+<html>
+<button id="get">get</button>
+<button id="ws">ws</button>
+
+</html>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    const get = document.getElementById("get")
+    const ws = document.getElementById("ws")
+    ws.onclick = () => {
+        const socket = new WebSocket("ws://localhost:2000/ws/connect")
+        socket.on("data", (m) => {
+            console.log(m);
+        })
+    }
+    get.onclick = () => {
+        axios.request({
+            url: "http://localhost:2000/auth/login", data: {
+                "username": "test",
+                "password": "test3",
+                "role": 1,
+                "email": "daniel3@gmail.com"
+
+            }, method: "post", withCredentials: true,
+        }).then(data => { console.log(data) })
+        // fetch("http://localhost:2000", { credentials: "same-origin" })
+        axios.request({ url: "http://localhost:2000/", method: "get", withCredentials: true })
+        // axios.request({ url: "http://localhost:3000/api/file/process", data: { file: "file" }, method: "POST", withCredentials: true })
+    }
+
+</script>

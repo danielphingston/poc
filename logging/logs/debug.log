@@ -1,0 +1,45 @@
+2021-05-31 21:52:58 info [src/test.js]: test
+2021-05-31 21:52:58 debug [src/test.js]: [1,2,3,{"Das":2}]
+2021-05-31 21:52:58 error [src/test.js]: {}
+2021-05-31 21:53:20 info [src/test.js]: test 22
+2021-05-31 21:53:20 debug [src/test.js]: [1,2,3,{"Das":2}]
+2021-05-31 21:53:20 error [src/test.js]: {}
+2021-05-31 21:53:41 info [src/test.js]: test 22
+2021-05-31 21:53:41 debug [src/test.js]: [1,2,3,{"Das":2}] 2
+2021-05-31 21:53:41 error [src/test.js]: {}
+2021-05-31 21:54:09 info [src/test.js]: test 22
+2021-05-31 21:54:09 debug [src/test.js]: [1,2,3,{"Das":2}] 2
+2021-05-31 21:54:09 error [src/test.js]: x is not defined
+2021-05-31 21:57:02 info [src/test.js]: test 22
+2021-05-31 21:57:02 debug [src/test.js]: [ 1, 2, 3, { Das: 2 } ] 2
+2021-05-31 21:57:02 error [src/test.js]: x is not defined
+2021-05-31 21:57:18 info [src/test.js]: test 22 { '22': 1 }
+2021-05-31 21:57:18 debug [src/test.js]: [ 1, 2, 3, { Das: 2 } ] 2
+2021-05-31 21:57:18 error [src/test.js]: x is not defined
+2021-05-31 21:57:59 info [src/test.js]: test 22 { '22': 1 }
+2021-05-31 21:57:59 debug [src/test.js]: [ 1, 2, 3, { Das: 2 } ] 2
+2021-05-31 21:57:59 error [src/test.js]: ReferenceError: x is not defined
+    at Object.<anonymous> (/home/danielphingston/Desktop/Projects/Mavenir/Edge AI/poc/logging/src/test.js:6:5)
+    at Module._compile (internal/modules/cjs/loader.js:1068:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Module.load (internal/modules/cjs/loader.js:933:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:774:14)
+    at Module.require (internal/modules/cjs/loader.js:957:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at Object.<anonymous> (/home/danielphingston/Desktop/Projects/Mavenir/Edge AI/poc/logging/x.js:1:16)
+    at Module._compile (internal/modules/cjs/loader.js:1068:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+2021-05-31 21:58:53 info [src/test.js]: test 22 { '22': 1 }
+2021-05-31 21:58:53 debug [src/test.js]: [ 1, 2, 3, { Das: 2 } ] 2
+2021-05-31 21:58:53 error [src/test.js]: ReferenceError: x is not defined
+    at Object.<anonymous> (/home/danielphingston/Desktop/Projects/Mavenir/Edge AI/poc/logging/src/test.js:6:5)
+    at Module._compile (internal/modules/cjs/loader.js:1068:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Module.load (internal/modules/cjs/loader.js:933:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:774:14)
+    at Module.require (internal/modules/cjs/loader.js:957:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at Object.<anonymous> (/home/danielphingston/Desktop/Projects/Mavenir/Edge AI/poc/logging/x.js:1:16)
+    at Module._compile (internal/modules/cjs/loader.js:1068:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+2021-05-31 21:58:53 info [src/test.js]: sd

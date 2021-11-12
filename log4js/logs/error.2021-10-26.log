@@ -1,0 +1,28 @@
+[91m2021-10-26T15:56:59.303 EDGE-API ERROR log4js/log.js:73 s
+]
+[91m2021-10-26T16:05:50.847 EDGE-API ERROR log4js/log.js:80 s
+]
+[91m2021-10-26T16:05:50.852 EDGE-API ERROR log4js/log.js:81 ss
+]
+[91m2021-10-26T16:09:01.281 EDGE-API ERROR log4js/log.js:74 s
+]
+[91m2021-10-26T16:09:01.283 test ERROR log4js/log.js:75 ss
+]
+[91m2021-10-26T16:10:19.920 EDGE-API ERROR log4js/log.js:75 s
+]
+[91m2021-10-26T16:10:19.924 test ERROR log4js/log.js:76 ss
+]
+[91m2021-10-26T16:10:59.710 test ERROR log4js/log.js:76 ss
+]
+[91m2021-10-26T16:10:59.714 EDGE-API ERROR log4js/log.js:77 s
+]
+[91m2021-10-26T16:11:41.715 test ERROR log4js/log.js:75 ss
+]
+[91m2021-10-26T16:11:41.727 EDGE-API ERROR log4js/log.js:76 s
+]
+[91m2021-10-26T16:11:48.893 test ERROR log4js/log.js:75 ss
+]
+[91m2021-10-26T16:11:48.897 EDGE-API ERROR log4js/log.js:76 s
+]
+[32m2021-10-26T16:14:09.761 d INFO log4js/log.js:75 hello
+]

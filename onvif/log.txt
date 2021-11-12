@@ -1,0 +1,13 @@
+Start the discovery process.
+http://165.138.56.142:80 admin 123456 Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized
+http://165.138.56.142:80 Admin 123456 Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized
+http://165.138.56.142:80 admin admin Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized
+http://165.138.56.142:80 admin 9999 Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized
+http://165.138.56.142:80 admin admin Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized
+http://165.138.56.142:80 root pass Failed to initialize the device: Error: Network Error: socket hang up
+http://165.138.56.142:80 admin admin Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized
+http://165.138.56.142:80 admin admin Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized
+http://165.138.56.142:80 root camera Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized
+http://165.138.56.142:80 admin admin Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized
+http://165.138.56.142:80 admin admin Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized
+http://165.138.56.142:80 admin 1234 Failed to initialize the device: Error: 400 Bad Request - Sender not Authorized

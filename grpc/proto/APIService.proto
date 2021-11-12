@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+service APIService {
+  rpc TriggerDSEventProcessedDataNotify(DSEventProcessedDataNotification)
+      returns (Empty) {}
+
+  rpc RemoveStream(RemoveStreamRequest) returns (Status);
+}
+
+message Empty {}
+
+message Status {
+  bool success = 1;
+  string message = 2;
+}
+
+message DSEventProcessedDataNotification {
+  repeated string labels = 1;
+  string uniqueID = 2;
+}
+
+message RemoveStreamRequest {
+  string streamId = 1;
+  string cameraId = 2;
+}

@@ -1,0 +1,9 @@
+2021-05-28 21:11:39 info [src/test.js]: test
+2021-05-28 21:11:39 info [src/test.js]: [1,2,3,{"Das":2}]
+2021-05-28 21:11:39 error [src/test.js]: x is not defined
+2021-05-28 21:11:48 info [src/test.js]: test
+2021-05-28 21:11:48 debug [src/test.js]: [1,2,3,{"Das":2}]
+2021-05-28 21:11:48 error [src/test.js]: x is not defined
+2021-05-28 21:16:31 info [src/test.js]: test
+2021-05-28 21:16:31 debug [src/test.js]: [1,2,3,{"Das":2}]
+2021-05-28 21:16:31 error [src/test.js]: x is not defined
