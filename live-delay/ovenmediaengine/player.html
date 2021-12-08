@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>oven media test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdn.jsdelivr.net/npm/ovenplayer/dist/ovenplayer.js"></script>
+        <style>
+            .player-wrapper {
+                margin: 0 auto;
+                width: 480px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="player-wrapper">
+            <!-- OvenPlayer will be initialized inside this element. -->
+            <div id="player"></div>
+        </div>
+    </body>
+    <script>
+        // Initialize OvenPlayer
+        const player = OvenPlayer.create("player", {
+            sources: [
+                {
+                    label: "webrtc",
+                    type: "webrtc",
+                    file: "ws://ec2-18-119-114-24.us-east-2.compute.amazonaws.com:3043/app/test1",
+                },
+            ],
+        });
+    </script>
+</html>

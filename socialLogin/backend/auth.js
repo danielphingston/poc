@@ -1,5 +1,5 @@
 const passport = require("passport");
-const Strategy = require("passport-twitter");
+const Strategy = require("passport-twitter").Strategy;
 
 module.exports = function () {
     passport.use(

@@ -1,0 +1,37 @@
+docker run -d \
+-p 1935:1935 \
+-p 3333:3333 \
+-p 3478:3478 \
+-p 8080:8080 \
+-p 9000:9000 \
+-p 9999:9999/udp \
+-p 4000-4005:4000-4005/udp \
+-p 10006-10010:10006-10010/udp --name ovenmediaengine \
+-p 8081:80 \
+airensoft/ovenmediaengine:latest
+
+//rtsp
+ffmpeg -re -loop 1 -i bg.jpg  -vf drawtext="fontfile=monofonto.ttf: fontsize=96: box=1: boxcolor=black@0.75: boxborderw=5: fontcolor=white: x=(w-text_w)/2: y=((h-text_h)/2)+((h-text_h)/4): text='%{localtime\:%H\\\\\:%M\\\\\:%S}'" -tune zerolatency -r 15 -an -vcodec libx264 -fflags +genpts -g 15 -f rtsp rtsp://localhost:8554/stream1
+
+ffmpeg -re -loop 1 -i rtsp://192.168.0.105:5540 -tune zerolatency -r 15 -an -vcodec libx264 -fflags +genpts -g 15 -f rtsp rtsp://localhost:8554/stream1
+//rtmp
+ffmpeg -re -loop 1 -i bg.jpg  -vf drawtext="fontfile=monofonto.ttf: fontsize=96: box=1: boxcolor=black@0.75: boxborderw=5: fontcolor=white: x=(w-text_w)/2: y=((h-text_h)/2)+((h-text_h)/4): text='%{localtime\:%H\\\\\:%M\\\\\:%S}'" -tune zerolatency -r 15 -an -vcodec libx264 -fflags nobuffer -g 15 -f flv rtmp://localhost:1935/app/test1
+
+docker cp Server.xml  ovenmediaengine:/opt/ovenmediaengine/bin/origin_conf/Server.xml 
+docker cp edgeServer.xml  ovenmediaengine:/opt/ovenmediaengine/bin/edge_conf/Server.xml
+
+
+            <Origins>
+				<Origin>
+					<Location>/app_name/rtsp_stream_name</Location>
+					<Pass>
+						<Scheme>rtsp</Scheme>
+						<Urls><Url>192.168.0.105:5540/ch0/</Url></Urls>
+					</Pass>
+				</Origin>
+			</Origins>
+
+
+./ffmpeg -rtsp_transport tcp -i  rtsp://deepstream-poc-con-dev:26154/ds-test  -tune zerolatency -r 24 -an -vcodec copy -fflags +genpts -g 24 -f flv rtmp://ovenmediaengine:1935/app/test1
+
+docker run --network edge-ai-network -d -p 1935:1935 -p 3043:3043 -p 3048:3048 -p 3038:8080 -p 9000:9000 -p 9999:9999/udp -p 4000-4005:4000-4005/udp -p 3044:3044/udp -p 10006-10010:10006-10010/udp --name ovenmediaengine -p 3039:80 airensoft/ovenmediaengine:latest 

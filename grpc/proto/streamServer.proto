@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+service StreamService {
+  rpc StartStreaming(FileStreamRequest) returns (Status) {}
+  rpc StartLiveStreaming(LiveStreamRequest) returns (Status) {}
+  rpc StopStreaming(Empty) returns (Status) {}
+  rpc ConvertToRTSP(ConvertToRTSPRequest) returns (ConvertToRTSPResponse) {}
+}
+
+message Empty {}
+
+message FileStreamRequest {
+  string sessionId = 1;
+  string url = 2;
+  string fileName = 3;
+}
+
+message LiveStreamRequest {
+  string sessionId = 1;
+  string url = 2;
+  string cameraId = 3;
+  string streamId = 4;
+}
+
+message ConvertToRTSPRequest {
+  string sessionId = 1;
+  string url = 2;
+  string id = 3;
+  string type = 4;
+}
+
+message Status {
+  bool success = 1;
+  string message = 2;
+}
+
+message ConvertToRTSPResponse {
+  enum Status {
+    SUCCESS = 0;
+    FAILURE = 1;
+  }
+  Status status = 1;
+  string message = 2;
+}

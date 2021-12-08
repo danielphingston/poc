@@ -1,0 +1,13 @@
+version: '2'
+services:
+  proxy:
+    working_dir: /data
+    image: migoller/live555proxyserverdocker
+    entrypoint:  /opt/live/hlsProxy/live555HLSProxy rtsp://192.168.0.105:5540/ch0 test
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ./hls:/data
+    ports:
+      - "554:554"
+      - "8080:80"
