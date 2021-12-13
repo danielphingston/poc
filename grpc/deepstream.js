@@ -6,7 +6,7 @@ const deepStreamClient = require("./deepstreamClient");
 const deepStreamProto = grpc.loadPackageDefinition(packageDefinition).dsProto;
 
 const host = "127.0.0.1";
-const port = "50051";
+const port = "50050";
 const server = new grpc.Server();
 
 server.addService(deepStreamProto.DeepStreamEventService.service, {
@@ -26,18 +26,14 @@ server.addService(deepStreamProto.DeepStreamEventService.service, {
             );
         }, 5000);
     },
-});
-
-deepStreamClient.TriggerDSEventProcessedDataNotify(
-    {
-        labels: ["labels", 1],
-        uniqueID: "call.request.uniqueID",
+    TriggerDSEventUpload: (call, callback) => {
+        console.log(call.request);
+        callback(null, {
+            outUrl: call.request.inUrl,
+            wsUrl: "http://localhost:3000",
+        });
     },
-    (err, response) => {
-        console.log(err);
-        console.log(response);
-    }
-);
+});
 
 server.bindAsync(
     `${host}:${port}`,
