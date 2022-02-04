@@ -34,4 +34,4 @@ docker cp edgeServer.xml  ovenmediaengine:/opt/ovenmediaengine/bin/edge_conf/Ser
 
 ./ffmpeg -rtsp_transport tcp -i  rtsp://deepstream-poc-con-dev:26154/ds-test  -tune zerolatency -r 24 -an -vcodec copy -fflags +genpts -g 24 -f flv rtmp://ovenmediaengine:1935/app/test1
 
-docker run --network edge-ai-network -d -p 1935:1935 -p 3043:3043 -p 3048:3048 -p 3038:8080 -p 9000:9000 -p 9999:9999/udp -p 4000-4005:4000-4005/udp -p 3044:3044/udp -p 10006-10010:10006-10010/udp --name ovenmediaengine -p 3039:80 airensoft/ovenmediaengine:latest 
+docker run --network edge-ai-network -d -p 9091:8081 -p 1935:1935 -p 3043:3043 -p 3048:3048 -p 3038:8080 -p 9000:9000 -p 9999:9999/udp -p 4000-4005:4000-4005/udp -p 3044:3044/udp -p 10006-10010:10006-10010/udp --name ovenmediaengine -p 3039:80 ovenmediaengine-mavenir:latest
