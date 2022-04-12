@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <Server version="8">
         <Name>OvenMediaEngine</Name>
@@ -13,12 +13,12 @@
         If this is successful, you can use ${PublicIP} in your settings.
         -->
         <StunServer>stun.l.google.com:19302</StunServer>
-		<Managers>
-			<Host>
-				<Names>
-					<Name>*</Name>
-				</Names>
-				<!--
+        <Managers>
+                <Host>
+                        <Names>
+                                <Name>*</Name>
+                        </Names>
+                        <!--
 					If you want to set up TLS, set it up by referring to the following:
 				<TLS>
 					<CertPath>airensoft_com.crt</CertPath>
@@ -26,23 +26,23 @@
 					<ChainCertPath>airensoft_com_chain.crt</ChainCertPath>
 				</TLS>
 				-->
-			</Host>
-			<API>
-				<AccessToken>your_access_token</AccessToken>
-			</API>
-		</Managers>
+                </Host>
+                <API>
+                        <AccessToken>your_access_token</AccessToken>
+                </API>
+        </Managers>
 
         <!-- Settings for the ports to bind -->
         <Bind>
                 <!-- Enable this configuration if you want to use API Server -->
-                
+
                 <Managers>
                         <API>
                                 <Port>${env:OME_API_PORT:8081}</Port>
                                 <WorkerCount>1</WorkerCount>
                         </API>
                 </Managers>
-               
+
                 <Providers>
                         <!-- Pull providers -->
                         <RTSPC>
@@ -234,11 +234,11 @@
                                                 <AppWorkerCount>1</AppWorkerCount>
                                                 <StreamWorkerCount>8</StreamWorkerCount>
                                                 <OVT />
-												<FILE>
-													<RootPath>/mnt/shared_volumes</RootPath>
-													<FilePath>/${VirtualHost}/${Application}/${Stream}/${StartTime:YYYYMMDDhhmmss}_${EndTime:YYYYMMDDhhmmss}.ts</FilePath>
-													<InfoPath>/${VirtualHost}/${Application}/${Stream}.xml</InfoPath>
-												</FILE>
+                                                <FILE>
+                                                        <RootPath>/mnt/shared_volumes</RootPath>
+                                                        <FilePath>/${VirtualHost}/${Application}/${Stream}/${StartTime:YYYYMMDDhhmmss}_${EndTime:YYYYMMDDhhmmss}.ts</FilePath>
+                                                        <InfoPath>/${VirtualHost}/${Application}/${Stream}.xml</InfoPath>
+                                                </FILE>
                                                 <WebRTC>
                                                         <Timeout>30000</Timeout>
                                                         <Rtx>false</Rtx>
